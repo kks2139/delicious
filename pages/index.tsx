@@ -1,14 +1,25 @@
 import type {NextPage} from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <Layout documentTitle="홈">
       <div className="Home">
+        <h1>이곳은 쿠킹의 홈입니다.</h1>
+        <div className="img-box common-img-contain">
+          <Image src="/img/sample_empty.png" layout="fill" />
+        </div>
+        <p>설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명</p>
         <style jsx>{`
           .Home {
+            padding: 40px 20px 0 20px;
+          }
+          .img-box {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            margin: 20px 0;
           }
         `}</style>
       </div>

@@ -11,12 +11,10 @@ function MyApp({Component, pageProps}: AppProps) {
           padding: 0;
           margin: 0;
         }
-
         a {
           color: inherit;
           text-decoration: none;
         }
-
         h1,
         h2,
         h3,
@@ -25,17 +23,20 @@ function MyApp({Component, pageProps}: AppProps) {
         h6 {
           margin: 0;
         }
-
         ul,
         li {
           list-style: none;
           padding: 0;
           margin: 0;
         }
-
         * {
           box-sizing: border-box;
-          font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+          font-family: 'Gothic A1', sans-serif;
+        }
+        .common-img-contain {
+          img {
+            object-fit: contain;
+          }
         }
       `}</style>
     </>

@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Header from './Header';
 
-const appTitle = '쿠킹';
+const APP_TITLE = '쿠킹';
+const HEADER_HEIGHT = 60;
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,13 +14,17 @@ function Layout({children, documentTitle = ''}: LayoutProps) {
     <div className="Layout">
       <Head>
         <title>
-          {documentTitle ? `${appTitle} | ${documentTitle}` : appTitle}
+          {documentTitle ? `${APP_TITLE} | ${documentTitle}` : APP_TITLE}
         </title>
       </Head>
-      <Header />
+      <Header height={HEADER_HEIGHT} />
       <div className="content-box">{children}</div>
       <style jsx>{`
         .Layout {
+          > .content-box {
+            /* border: 1px solid red; */
+            height: calc(100vh - ${HEADER_HEIGHT}px);
+          }
         }
       `}</style>
     </div>
