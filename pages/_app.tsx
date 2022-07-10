@@ -38,6 +38,12 @@ function MyApp({Component, pageProps}: AppProps) {
             object-fit: contain;
           }
         }
+        .quill {
+          .ql-container {
+          }
+          .ql-editor {
+          }
+        }
       `}</style>
     </>
   );
