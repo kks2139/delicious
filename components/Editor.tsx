@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import {useEffect, useRef, useState} from 'react';
+import {useLayoutEffect, useRef, useState} from 'react';
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false});
@@ -28,9 +28,11 @@ function Editor() {
   const timerId = useRef(0);
   const [editorValue, setEditorValue] = useState('');
 
-  const onChangeEditor = () => {};
+  const onChangeEditor = (content: string) => {
+    // setEditorValue(content);
+  };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     timerId.current = window.setInterval(() => {
       console.log(timerId.current);
       const toolbars = container.current?.querySelectorAll(
