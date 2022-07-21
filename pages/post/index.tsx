@@ -3,7 +3,7 @@ import Layout from 'components/Layout';
 
 function Post() {
   return (
-    <Layout>
+    <Layout documentTitle="글쓰기">
       <div className="Post">
         <h1 className="title">이곳은 글쓰는 페이지</h1>
         <Editor />
