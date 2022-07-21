@@ -1,73 +1,71 @@
 import Link from 'next/link';
-
-const MENUS = [
-  {path: '/', name: '메뉴1'},
-  {path: '/', name: '메뉴2'},
-  {path: '/', name: '메뉴3'},
-];
+import {useRouter} from 'next/router';
+import Menus from './Menus';
 
 interface HeaderProps {
   height?: number;
 }
 
-function Header({height}: HeaderProps) {
+function Header({height = 60}: HeaderProps) {
+  const {pathname} = useRouter();
+  const isPost = pathname.includes('/post');
+
   return (
     <header className="Header">
-      <h1 className="title">쿠킹 이즈 마이 라이프~</h1>
-      <ul className="menu-box">
-        {MENUS.map((menu, i) => (
-          <li key={menu.path + i} className="link">
-            <Link href={menu.path}>
-              <>
-                <a>{menu.name}</a>
-                <div className="bar"></div>
-              </>
+      <h1 className="title">Cookking</h1>
+      <div className="section">
+        <Menus height={height} />
+        <div className="info-box">
+          <div className="user-box">
+            <div className="link">로그인</div>
+            <div className="link">회원가입</div>
+          </div>
+          {!isPost && (
+            <Link href="/post">
+              <a>
+                <button className="common-button post">글쓰기</button>
+              </a>
             </Link>
-          </li>
-        ))}
-      </ul>
+          )}
+        </div>
+      </div>
       <style jsx>{`
         .Header {
+          z-index: 5;
+          position: fixed;
+          top: 0;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          width: 100%;
           height: ${height}px;
           padding: 0 20px;
           box-shadow: 0 0 30px 0 rgb(207, 207, 207);
         }
+        .section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
         .title {
           font-size: 21px;
-          color: rgb(255, 129, 129);
+          color: var(--main-color);
+          margin-right: 30px;
         }
-        .menu-box {
+        .info-box {
+          display: flex;
+        }
+        .user-box {
           display: flex;
           align-items: center;
-          height: 100%;
+          .link {
+            margin: 0 8px;
+            cursor: pointer;
+          }
         }
-        .link {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          margin: 0 5px;
-          padding: 0 10px;
-          font-weight: bold;
-          cursor: pointer;
-          &:hover {
-            .bar {
-              width: 100%;
-            }
-          }
-          .bar {
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            height: 4px;
-            border-radius: 10px;
-            background-color: red;
-            transition: 0.2s;
-          }
+        .post {
+          margin-left: 20px;
         }
       `}</style>
     </header>

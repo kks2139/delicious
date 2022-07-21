@@ -21,6 +21,7 @@ function Layout({children, documentTitle = ''}: LayoutProps) {
       <div className="content-box">{children}</div>
       <style jsx>{`
         .Layout {
+          padding-top: ${HEADER_HEIGHT}px;
           > .content-box {
             /* border: 1px solid red; */
             height: calc(100vh - ${HEADER_HEIGHT}px);
