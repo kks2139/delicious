@@ -8,9 +8,6 @@ const Home: NextPage = () => {
     <Layout documentTitle="홈">
       <div className="Home">
         <h1>이곳은 쿠킹의 홈입니다.</h1>
-        <Link href="/post">
-          <button>글을 써보자</button>
-        </Link>
         <div className="img-box common-img-contain">
           <Image src="/img/sample_empty.png" layout="fill" />
         </div>

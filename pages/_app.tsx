@@ -6,6 +6,9 @@ function MyApp({Component, pageProps}: AppProps) {
     <>
       <Component {...pageProps} />
       <style jsx global>{`
+        :root {
+          --main-color: rgb(255, 0, 149);
+        }
         html,
         body {
           padding: 0;
@@ -33,6 +36,11 @@ function MyApp({Component, pageProps}: AppProps) {
           box-sizing: border-box;
           font-family: 'Gothic A1', sans-serif;
         }
+        *,
+        *:focus,
+        *:hover {
+          outline: none;
+        }
         .common-img-contain {
           img {
             object-fit: contain;
@@ -42,6 +50,22 @@ function MyApp({Component, pageProps}: AppProps) {
           .ql-container {
           }
           .ql-editor {
+          }
+        }
+        .common-button {
+          background-color: rgb(0, 140, 255);
+          border-radius: 8px;
+          padding: 6px 20px;
+          border: 0;
+          cursor: pointer;
+          color: white;
+          font-weight: bold;
+          transition: 0.2s;
+          &:hover {
+            background-color: rgb(44, 160, 255);
+          }
+          &:active {
+            background-color: rgb(0, 118, 214);
           }
         }
       `}</style>
