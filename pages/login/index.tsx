@@ -84,6 +84,8 @@ function Login() {
           }
           .title {
             margin-bottom: 30px;
+            transform: translateY(-50px);
+            font-weight: normal;
           }
           .form {
             display: flex;
