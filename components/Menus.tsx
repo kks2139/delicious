@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import React, {useState} from 'react';
 
 const MENUS = [
   {
@@ -20,10 +21,21 @@ interface MenusProps {
 }
 
 function Menus({height = 60}: MenusProps) {
+  const [linkLeft, setLinkLeft] = useState(0);
+
+  const onMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+    const left = e.currentTarget.offsetLeft;
+    setLinkLeft(left);
+  };
+
   return (
     <ul className="Menus">
       {MENUS.map((cate, i) => (
-        <li key={cate.name + i} className="category">
+        <li
+          key={cate.name + i}
+          className="category"
+          onMouseEnter={onMouseEnter}
+        >
           <div className="cate">{cate.name}</div>
           <ul className="link-box">
             {cate.menus &&
@@ -69,11 +81,10 @@ function Menus({height = 60}: MenusProps) {
             left: 0;
             top: ${height}px;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             color: black;
-            height: 0px;
+            height: 0;
             width: 100%;
             overflow: auto;
             cursor: default;
@@ -82,6 +93,8 @@ function Menus({height = 60}: MenusProps) {
             transition: 0.2s;
 
             .link {
+              position: relative;
+              left: ${linkLeft}px;
               display: flex;
               align-items: center;
               margin: 0 20px;
@@ -89,7 +102,7 @@ function Menus({height = 60}: MenusProps) {
               color: transparent;
               font-weight: normal;
               cursor: pointer;
-              transition: 0.5s;
+              transition: color 0.8s;
             }
           }
 

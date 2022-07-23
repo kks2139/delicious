@@ -8,6 +8,7 @@ function MyApp({Component, pageProps}: AppProps) {
       <style jsx global>{`
         :root {
           --main-color: rgb(255, 0, 149);
+          --main-color-1: rgb(255, 168, 219);
         }
         html,
         body {

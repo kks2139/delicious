@@ -12,13 +12,21 @@ function Header({height = 60}: HeaderProps) {
 
   return (
     <header className="Header">
-      <h1 className="title">Cookking</h1>
+      <Link href="/">
+        <a>
+          <h1 className="title">Cookking</h1>
+        </a>
+      </Link>
       <div className="section">
         <Menus height={height} />
         <div className="info-box">
           <div className="user-box">
-            <div className="link">로그인</div>
-            <div className="link">회원가입</div>
+            <Link href="/login">
+              <a className="link">로그인</a>
+            </Link>
+            <Link href="/join">
+              <a className="link">회원가입</a>
+            </Link>
           </div>
           {!isPost && (
             <Link href="/post">
