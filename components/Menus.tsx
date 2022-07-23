@@ -88,7 +88,7 @@ function Menus({height = 60}: MenusProps) {
             width: 100%;
             overflow: auto;
             cursor: default;
-            background-color: rgb(255, 243, 188);
+            background-color: var(--main-color-4);
             box-shadow: inset 0 3px 5px 0 rgb(223, 223, 223);
             transition: 0.2s;
 
@@ -112,7 +112,7 @@ function Menus({height = 60}: MenusProps) {
             width: 0;
             height: 4px;
             border-radius: 10px;
-            background-color: rgb(255, 187, 0);
+            background-color: var(--main-color-1);
             transition: 0.2s;
           }
         }

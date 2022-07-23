@@ -7,8 +7,13 @@ function MyApp({Component, pageProps}: AppProps) {
       <Component {...pageProps} />
       <style jsx global>{`
         :root {
-          --main-color: rgb(255, 0, 149);
-          --main-color-1: rgb(255, 168, 219);
+          --main-color-1: #ffbc00;
+          --main-color-2: #ffdb77;
+          --main-color-3: #c59100;
+          --main-color-4: #ffebb5;
+          --gray-1: #999999;
+          --gray-2: #cccccc;
+          --gray-3: #e9e9e9;
         }
         html,
         body {
@@ -51,22 +56,6 @@ function MyApp({Component, pageProps}: AppProps) {
           .ql-container {
           }
           .ql-editor {
-          }
-        }
-        .common-button {
-          background-color: rgb(0, 140, 255);
-          border-radius: 8px;
-          padding: 6px 20px;
-          border: 0;
-          cursor: pointer;
-          color: white;
-          font-weight: bold;
-          transition: 0.2s;
-          &:hover {
-            background-color: rgb(44, 160, 255);
-          }
-          &:active {
-            background-color: rgb(0, 118, 214);
           }
         }
       `}</style>

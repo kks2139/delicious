@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {useRouter} from 'next/router';
+import Button from './Button';
 import Menus from './Menus';
 
 interface HeaderProps {
@@ -31,7 +32,8 @@ function Header({height = 60}: HeaderProps) {
           {!isPost && (
             <Link href="/post">
               <a>
-                <button className="common-button post">글쓰기</button>
+                <Button>글쓰기</Button>
+                {/* <button className="common-button post">글쓰기</button> */}
               </a>
             </Link>
           )}
@@ -58,7 +60,7 @@ function Header({height = 60}: HeaderProps) {
         }
         .title {
           font-size: 21px;
-          color: var(--main-color);
+          color: var(--main-color-1);
           margin-right: 30px;
         }
         .info-box {
