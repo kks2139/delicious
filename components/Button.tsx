@@ -12,7 +12,7 @@ function Button({children, ...props}: ButtonProps) {
         button {
           background-color: var(--main-color-1);
           border: 1px solid var(--main-color-1);
-          border-radius: 8px;
+          border-radius: 6px;
           padding: 6px 20px;
           cursor: pointer;
           color: white;

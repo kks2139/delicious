@@ -1,26 +1,12 @@
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Layout from 'components/Layout';
+import SnsIconBox from 'components/SnsIconBox';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useForm} from 'react-hook-form';
 
-const SNS = [
-  {
-    name: 'facebook',
-    icon: '',
-  },
-  {
-    name: 'kakao',
-    icon: '',
-  },
-  {
-    name: 'naver',
-    icon: '',
-  },
-];
-
-const FORM_WIDTH = 300;
+export const LOGIN_FORM_WIDTH = 300;
 
 function Login() {
   const {register, handleSubmit} = useForm();
@@ -28,11 +14,6 @@ function Login() {
   const onSubmit = () => {
     // TODO: validation 체크 + 로그인 수행
     alert('로그인');
-  };
-
-  const onClickSnsJoin = (name: string) => {
-    // TODO: SNS 회원가입
-    alert(name);
   };
 
   return (
@@ -56,20 +37,7 @@ function Login() {
             <a>회원가입</a>
           </Link>
         </div>
-        <div className="sns-box">
-          <h4 className="desc">SNS 계정으로 간편하게 회원가입</h4>
-          <ul className="icon-box">
-            {SNS.map((sns, i) => (
-              <li
-                key={sns.name + i}
-                className="icon"
-                onClick={() => onClickSnsJoin(sns.name)}
-              >
-                <Image src="/img/sample_empty.png" width={60} height={60} />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SnsIconBox className="sns-box" />
         <div className="line long"></div>
         <span className="bottom-text">
           © HamPotato, Co., Ltd.. All Rights Reserved
@@ -81,6 +49,9 @@ function Login() {
             justify-content: center;
             align-items: center;
             height: 100%;
+            > :global(.sns-box) {
+              margin: 60px 0 10px 0;
+            }
           }
           .title {
             margin-bottom: 30px;
@@ -91,7 +62,7 @@ function Login() {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: ${FORM_WIDTH}px;
+            width: ${LOGIN_FORM_WIDTH}px;
             > :global(input) {
               margin: 0 0 15px 0;
             }
@@ -107,7 +78,7 @@ function Login() {
             width: 120px;
             margin: 30px 0 10px 0;
             &.long {
-              width: ${FORM_WIDTH + 200}px;
+              width: ${LOGIN_FORM_WIDTH + 200}px;
               background-color: var(--gray-3);
             }
           }
@@ -122,29 +93,6 @@ function Login() {
                 font-size: 14px;
               }
             }
-          }
-          .sns-box {
-            width: ${FORM_WIDTH}px;
-            margin: 60px 0 10px 0;
-            .desc {
-              text-align: center;
-              color: var(--gray-1);
-              font-size: 15px;
-            }
-          }
-          .icon-box {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            .icon {
-              margin: 0 15px;
-              cursor: pointer;
-            }
-          }
-          .bottom-text {
-            margin-top: 70px;
-            font-size: 12px;
-            color: var(--gray-1);
           }
         `}</style>
       </div>

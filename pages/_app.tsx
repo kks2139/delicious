@@ -52,6 +52,14 @@ function MyApp({Component, pageProps}: AppProps) {
             object-fit: contain;
           }
         }
+        .no-drag {
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
         .quill {
           .ql-container {
           }
